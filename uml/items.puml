@@ -1,0 +1,32 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Riya Singh
+ */
+@startuml
+class items
+{
+    - date: String
+    - description: String
+    - status: int
+    - file: File
+
+    + initialize(url: URL, rb: ResourceBundle)
+    + handle(event: ActionEvent)
+    + setDate()
+    + getDate()
+    + setDescription(description: String)
+    + getDescription()
+    + check()
+    + addToList()
+    + writeToCSV()
+    + createCompleteItemsList(str: String)
+    + createIncompleteItemsList(str: String)
+    + editDescription()
+    + editDate()
+    + deleteFromList(str: String)
+    + display(event: ActionEvent)
+    + readCSV(srt: String)
+
+
+}
+@enduml

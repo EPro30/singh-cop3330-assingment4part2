@@ -1,0 +1,12 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Riya Singh
+ */
+@startuml
+'https://plantuml.com/sequence-diagram
+class MainApp
+{
+    +start()
+    +main()
+}
+@enduml

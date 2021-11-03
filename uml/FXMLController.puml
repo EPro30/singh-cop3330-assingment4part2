@@ -1,0 +1,28 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Riya Singh
+ */
+@startuml
+class FXMLController
+{
+    - label: Label
+    - button1: Button
+    - title: TextField
+    - date: DatePicker
+    - fileName: String
+
+    + initialize(url: URL, rb: ResourceBundle)
+    + handle(event: ActionEvent)
+    + addToArrayList()
+    + getToDoList()
+    + removeToDoListName(str: String)
+    + editToDoListName(oldStr: String, newStr: String)
+    + saveFile()
+    + newFile()
+    + openFile()
+    + close()
+    + renameFile()
+    + deleteFile()
+    + help()
+}
+@enduml
