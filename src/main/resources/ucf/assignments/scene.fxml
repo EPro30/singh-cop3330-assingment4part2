@@ -3,66 +3,137 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="304.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.FXMLController">
+<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="412.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.FXMLController">
    <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                <MenuItem mnemonicParsing="false" text="New" />
-                <MenuItem mnemonicParsing="false" text="Save" />
-                <MenuItem mnemonicParsing="false" text="Open" />
-                <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-                <MenuItem mnemonicParsing="false" text="Rename Title" />
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="How to use this App" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Display">
-                <items>
-                    <MenuItem mnemonicParsing="false" text="Display All tasks" />
-                    <MenuItem mnemonicParsing="false" text="Display Completed tasks" />
-                    <MenuItem mnemonicParsing="false" text="Display Incomplete tasks" />
-                </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="582.0" text="Current To Do List(s)" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00b7f7" height="413.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="640.0" />
+      <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="582.0" textAlignment="CENTER">
          <StackPane.margin>
             <Insets top="25.0" />
          </StackPane.margin>
       </Label>
-      <ButtonBar prefHeight="34.0" prefWidth="565.0">
+      <ButtonBar prefHeight="65.0" prefWidth="724.0">
         <buttons>
-            <TextField maxWidth="-Infinity" prefHeight="25.0" prefWidth="470.0" promptText="Add a decription" />
-            <DatePicker />
-            <Button fx:id="button1" maxHeight="-Infinity" maxWidth="199.0" minHeight="-Infinity" minWidth="66.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" text="Add Item" />
+            <TextField fx:id="addDescription" maxWidth="250.0" onAction="#handle" prefHeight="25.0" prefWidth="500.0" promptText="Add a decription" />
+            <DatePicker fx:id="addDate" maxWidth="165.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="YYYY/MM/DD" />
+            <CheckBox fx:id="boolStatus" maxHeight="-Infinity" maxWidth="88.0" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" prefHeight="20.0" text="Complete" />
+            <Button fx:id="addItem" maxHeight="-Infinity" maxWidth="100.0" minHeight="-Infinity" minWidth="63.0" mnemonicParsing="false" onAction="#handle" onMouseClicked="#handle" prefHeight="25.0" text="Add Item" />
         </buttons>
          <StackPane.margin>
-            <Insets left="-10.0" right="5.0" top="270.0" />
+            <Insets left="-10.0" right="5.0" top="370.0" />
          </StackPane.margin>
       </ButtonBar>
-      <ListView prefHeight="67.0" prefWidth="583.0">
+      <TableView fx:id="table" editable="true" prefHeight="319.0" prefWidth="629.0">
+        <columns>
+          <TableColumn fx:id="descriptionCol" prefWidth="365.0" text="Task Description" />
+          <TableColumn fx:id="dateCol" prefWidth="122.0" text="Due Date" />
+            <TableColumn fx:id="statusCol" prefWidth="142.0" text="Status" />
+        </columns>
          <StackPane.margin>
-            <Insets bottom="30.0" top="50.0" />
+            <Insets bottom="35.0" top="58.0" />
          </StackPane.margin>
-      </ListView>
+      </TableView>
+      <Button fx:id="displayAll" mnemonicParsing="false" onAction="#handleDisplayAll" text="Display All Item">
+         <StackPane.margin>
+            <Insets left="2.0" top="30.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="save" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+      <Button fx:id="help" mnemonicParsing="false" onAction="#handleHelp" text="Help">
+         <StackPane.margin>
+            <Insets left="95.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="open" mnemonicParsing="false" onAction="#handleOpen" text="Open">
+         <StackPane.margin>
+            <Insets left="45.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="displayComplete" mnemonicParsing="false" onAction="#handleDisplayComplete" text="Display Complete Items">
+         <StackPane.margin>
+            <Insets left="110.0" top="30.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="displayIncomplete" mnemonicParsing="false" onAction="#handleDisplayIncomplete" text="Display Incomplete Items">
+         <StackPane.margin>
+            <Insets left="260.0" top="30.0" />
+         </StackPane.margin>
+      </Button>
+      <Label fx:id="title" text="TO DO LIST" textFill="#0d0404">
+         <StackPane.margin>
+            <Insets left="260.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="Broadway" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="exit" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#322222">
+         <StackPane.margin>
+            <Insets left="140.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="deleteAnItem" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDeleteAnItem" prefHeight="27.0" prefWidth="115.0" text="Delete selected Item">
+         <StackPane.margin>
+            <Insets left="420.0" right="2.0" top="30.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </Button>
+      <Separator prefWidth="200.0">
+         <StackPane.margin>
+            <Insets top="27.0" />
+         </StackPane.margin>
+      </Separator>
+      <Separator orientation="VERTICAL" prefHeight="228.0" prefWidth="0.0">
+         <padding>
+            <Insets bottom="49.0" top="9.0" />
+         </padding>
+         <StackPane.margin>
+            <Insets bottom="305.0" left="254.0" top="20.0" />
+         </StackPane.margin>
+      </Separator>
+      <Separator orientation="VERTICAL" prefHeight="228.0" prefWidth="0.0">
+         <padding>
+            <Insets bottom="49.0" top="9.0" />
+         </padding>
+         <StackPane.margin>
+            <Insets bottom="305.0" left="414.0" top="20.0" />
+         </StackPane.margin>
+      </Separator>
+      <Separator orientation="VERTICAL" prefHeight="228.0" prefWidth="0.0">
+         <padding>
+            <Insets bottom="49.0" top="9.0" />
+         </padding>
+         <StackPane.margin>
+            <Insets bottom="305.0" left="539.0" top="20.0" />
+         </StackPane.margin>
+      </Separator>
+      <Separator orientation="VERTICAL" prefHeight="103.0" prefWidth="7.0">
+         <padding>
+            <Insets bottom="49.0" top="9.0" />
+         </padding>
+         <StackPane.margin>
+            <Insets bottom="305.0" left="104.0" top="20.0" />
+         </StackPane.margin>
+      </Separator>
+      <Button fx:id="deleteAll" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#handleDeleteAll" prefHeight="27.0" prefWidth="87.0" text="Clear All Items" textAlignment="CENTER">
+         <StackPane.margin>
+            <Insets left="546.0" top="30.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </Button>
    </children>
 </StackPane>

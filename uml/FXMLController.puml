@@ -6,23 +6,53 @@
 class FXMLController
 {
     - label: Label
-    - button1: Button
-    - title: TextField
-    - date: DatePicker
-    - fileName: String
+    - addItem: Button
+    - title: Label
+    - addDescription: TextField
+    - addDate: DatePicker
+    - boolStatus: CheckBox
+    - table: tableView
+    - descriptionCol: TableColumn<items, String>
+    - dateCol: TableColumn<items, String>
+    - statusCol: TableColumn<items, String>
+    - deleteAll: Button
+    - deleteAnItem: Button
+    - displaAll: Button
+    - displayComplete: Button
+    - displayIncomplete: Button
+    - save: Button
+    - open: Button
+    - help: Button
+    - exit: Button
 
-    + initialize(url: URL, rb: ResourceBundle)
-    + handle(event: ActionEvent)
-    + addToArrayList()
-    + getToDoList()
-    + removeToDoListName(str: String)
-    + editToDoListName(oldStr: String, newStr: String)
-    + saveFile()
-    + newFile()
-    + openFile()
-    + close()
-    + renameFile()
-    + deleteFile()
-    + help()
+    -data: ObservableList<items>
+    -fileChooser: FileChooser
+
+
+    +initialize(url: URL, rb: ResourceBundle)
+    +handle(ActionEvent event)
+    +handleSave(ActionEvent event)
+    +handleOpen(ActionEvent event)
+    +handleHelp(ActionEvent event)
+    +handleClose(ActionEvent event)
+    +handleDisplayComplete(ActionEvent event)
+    +handleDisplayInComplete(ActionEvent event)
+    +handleDisplayAll(ActionEvent event)
+    +handleDeleteAnItem(ActionEvent event)
+    +handleDeleteAll(ActionEvent event)
+
+    +addData(String description, LocalDate dt, boolean status)
+    +checkDescription(String str)
+    +checkDate(LocalDate dt)
+    +checkStatus(String str)
+    +editDescription(items item, String newDescription, ObservableList<items> dataList)
+    +editDate(items item, LocalDate dt, ObservableList<items> dataList)
+    +editStatus(items item, String newStatus, ObservableList<items> dataList)
+    +completeItem(ObservableList<items> dataList)
+    +incompleteItem(ObservableList<items> dataList)
+    +openFile()
+    +helpWindow()
+    +warning(String msg)
+
 }
 @enduml

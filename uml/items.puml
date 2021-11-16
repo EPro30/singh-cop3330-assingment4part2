@@ -5,28 +5,15 @@
 @startuml
 class items
 {
-    - date: String
-    - description: String
-    - status: int
-    - file: File
+    -description: SimpleStringProperty
+    -status: SimpleStringProperty
+    -date: SimpleStringProperty
 
-    + initialize(url: URL, rb: ResourceBundle)
-    + handle(event: ActionEvent)
-    + setDate()
-    + getDate()
-    + setDescription(description: String)
-    + getDescription()
-    + check()
-    + addToList()
-    + writeToCSV()
-    + createCompleteItemsList(str: String)
-    + createIncompleteItemsList(str: String)
-    + editDescription()
-    + editDate()
-    + deleteFromList(str: String)
-    + display(event: ActionEvent)
-    + readCSV(srt: String)
-
-
+    +setDate(LocalDate dt)
+    +getDate()
+    +setDescription(String description)
+    +getDescription()
+    +setStatus(String newStatus)
+    +getStatus()
 }
 @enduml

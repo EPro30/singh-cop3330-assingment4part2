@@ -4,189 +4,67 @@
  */
 package ucf.assignments;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import java.time.LocalDate;
 
-//NOTE: Pseudocode is included within each method
-//I am commenting the basic code + pseudocode to successfully execute and run the GUI Mock up
+public class items {
 
+    public final SimpleStringProperty description; //store the task description
+    public final SimpleStringProperty status; //store the task status
+    public final SimpleStringProperty date; //store the task due date
 
-/*
-public class items implements Initializable, EventHandler<ActionEvent>
-{
-
-    private String date; //store the date
-    private String description; //store the description
-    private int status; //store  0 for incomplete task, 1 for completed task
-    private File file; //store the name of the .csv file
-    //Create an observable list of string type to store description, date, and status
-    //Create an observable list of string type to store description and date of complete tasks
-    //Create an observable list of string type to store description and date of incomplete tasks
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
-        /*
-        -Create new scene object
-        -Initialize or define all the buttons that will be used in this new scene
-        -Call handle method when required (for different methods)
-         */
-/*
+    //items contructors with parameters used to initialize the data for a new task
+    items(String description, LocalDate date, boolean boolStatus) {
+        this.description = new SimpleStringProperty(description);
+        this.date = new SimpleStringProperty(date.toString());
+        if(boolStatus)
+            status = new SimpleStringProperty("Complete");
+        else
+            status = new SimpleStringProperty("Incomplete");
     }
 
-    @Override
-    public static handle()
-    {
-        /*
-        -If the user selects "add item", call the addEvent method
-        -If the user check the check-box for complete items call the completeItems method
-        -If the user selects "Remove item", call the removeEvent method
-        -If the user double-clicks an item description, call  the editDescription
-        -If the user double-clicks an item date, use the object to editDate
-         */
-/*
+    //items constructor with parameters used to load data from a file
+    items(String strDescription, String strDate, String strStatus) {
+        this.description = new SimpleStringProperty(strDescription);
+        this.date = new SimpleStringProperty(strDate);
+        this.status = new SimpleStringProperty(strStatus);
     }
 
-    public void setDate() //set date
+    //set the due date of a task
+    public void setDate(LocalDate dt) //set date
     {
-        /*
-        -Store in the input for date
-        -The input will be in string format
-         */
-/*
+        //this.dt.set(dt.toString());
+        date.set(dt.toString());
     }
 
-    public String getDate() //get date
+    //get the due date of a task
+    public String getDate()
     {
-        /*
-        -Return date;
-         */
-/*
+        return date.get();
     }
 
-    public void setDescription(String description) //set the description
+    //set the description of a task
+    public void setDescription(String strDescription) //set the description
     {
-        /*
-        -Store in the input for date
-        -The input will be in string format
-         */
-/*
+        description.set(strDescription);
     }
 
-    public String getDescription() //get description
+    //get description
+    public String getDescription()
     {
-        /*
-        -Return description;
-         */
-/*
+        return description.get();
     }
 
-    public void check() //set the status of a task
+    //set the status of a task
+    public void setStatus(String newStatus)
     {
-        /*
-        -If the check-box is unchecked for the current item
-        --set the status as 0 and call the createIncompleteItemsList method, pass in the current item to the function
-        -Else, set the status as 1 and call the createCompleteItemsList method, pass in the current item to the function
-         */
-/*
+        status.set(newStatus);
     }
 
-
-    public void addToList() //append items in the observable list
+    //Get the status of a task
+    public String getStatus()
     {
-        /*
-        -Add the events to the observable list
-        -Call the writeToCSV method to write all the data on the text file
-         */
-/*
+        return status.get();
     }
-
-    public void writeToCSV() //Write to .csv file
-    {
-        /*
-        -Write to .CSV file by creating string separated by commas.
-         */
-/*
-    }
-
-    public void createCompleteItemsList(String str) //add completed tasks to complete list
-    {
-        /*
-        -Add items to the complete list variable
-         */
-/*
-    }
-
-    public void createIncompleteItemsList(String str) //add incomplete tasks to incomplete list
-    {
-        /*
-        -Add items to the incomplete list variable
-         */
-/*
-    }
-
-    public void editDescription() //edit description
-    {
-        /*
-        -Store the new item description from the text field
-        -change the name (by finding the index) in all the lists
-         */
-/*
-    }
-
-    public void editDate() //edit date
-    {
-        /*
-        -Store the new date from the date picker
-        -change the date (by finding the index) in all the lists
-         */
-/*
-    }
-
-    public void deleteFromList(String str) //remove an item from the list
-    {
-        /*
-        -Find the index name and date of the associated item
-        -Remove the string at that index
-         */
-/*
-    }
-
-    public void display(ActionEvent event) //Display/print specific items
-    {
-        /*
-        -If the user selects "Display All", then display/print all the items
-        -If the user selects "Display Complete tasks", then display/print only the completed items
-        -If the user selects "Display Incomplete tasks", then display/print only the incomplete items
-         */
-/*
-    }
-
-    public void readCSV(String str) //read .csv file
-    {
-        /*
-        -Run a while loop to read .csv file by using the comma splitter
-        -Print the list in list view
-        -May need to parse
-         */
-/*
-    }
-
 }
- */
 
