@@ -1,0 +1,81 @@
+To-Do List App allows you to:
+1. Create a List of more than 100 to-do items
+2. Add task description, due date, and completion status
+3. Edit the task description and due date
+4. Remove a task from the list
+5. Clear the list
+6. Display Complete tasks
+7. Display Incomplete tasks
+8. Save the List as a text file (.txt)
+9. Load a List
+
+
+To Add an item:
+1. Type the Task Description
+   NOTE: IF Description is empty, you will get a warning to Enter a description.
+   NOTE: IF your Description is more than 256 characters, you will get a warning to Enter a description within the given range.
+2. Pick a date from Date Picker
+   NOTE: IF Date is left empty or typed manually in the date picker box, you will get a warning to Pick the right date from the Date Picker.
+   NOTE: IF your Date is invalid in terms of day, month, or year, you will get a warning to pick a valid date from Date Picker.
+3. If you have completed the task, check the box next to complete.
+   If you have not completed the task, let the check box stay empty.
+4. Click on 'Add Item', to add the task on the list.
+
+
+To Edit the Description:
+1. Double click on the desired task description
+2. Edit the description
+3. Press Enter after editing
+    NOTE: You will get warning if description is empty or more than 256 characters
+
+To Edit the Date:
+1. Double click on the desired task due date
+2. Edit the due date
+3. Press Enter when done editing
+    NOTE: Please enter numbers between 1 and 9 (inclusive) followed by 0, example 01, 05, 09
+          You will get warning if the due date is empty
+          You will get warning if the day, month, or year is not valid
+
+To Edit the Status:
+1. Double click on the desired task status
+2. Type either "Complete" or "Incomplete" NO OTHER WORDS ARE ACCEPTED
+3. Press Enter when done editing
+    NOTE: If you will not use "Complete" or "Incomplete" for status, you will get a warning
+
+To Remove a task:
+1. Select the desired task
+2. Click on 'Delete selected item'
+
+To Delete all the tasks from the list:
+1. Click on 'Clear All Items'
+
+To Display All Items:
+1. Click on "Display All Items"
+
+To Display Complete Items:
+1. Click on "Display Complete Items"
+
+To Display Incomplete Items:
+1. Click on "Display Incomplete Items"
+
+To Save the TO-DO list:
+1. Click on 'Save', this will open 'save' dialogue box
+2. Enter the desired name of the List
+3. All the lists will be stored as a text file, so you can add an extension ".txt" at the end of the name or just save the file without any extension.
+   Our program is designed to save the file automatically with ".txt" extension
+
+To Open a TO-DO list:
+1. Click on 'Open', this will open 'open' dialogue box
+2. Double click or select and open the desired file
+
+To Save changes on a list:
+1. Edit the task(s) or make the desired changes
+2. Click on 'Save', this will open 'save' dialogue box
+3. Save the file with the previous name
+4. A pop-up window will ask you to replace the file (because you are saving the file with an already existing name)
+5. Click on 'yes', and the file will be saved with new changes
+
+To Close the App:
+1. Click on 'Close'
+
+
